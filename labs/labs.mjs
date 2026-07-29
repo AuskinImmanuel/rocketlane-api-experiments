@@ -2,11 +2,11 @@
 // Rocketlane API labs - run against the auskin@klenty.com trial workspace.
 // Needs Node 18+. Usage:
 //   export RL_API_KEY="..."          (Settings -> API -> Create API key)
-//   node round2-labs.mjs lab1        (read workspace + pagination)
-//   node round2-labs.mjs lab2        (create projects: minimal, traps, template)
-//   node round2-labs.mjs lab3        (phases + tasks + assignment)
-//   node round2-labs.mjs lab4        (time entry)
-//   node round2-labs.mjs lab5        (rate-limit-safe client demo)
+//   node labs.mjs lab1        (read workspace + pagination)
+//   node labs.mjs lab2        (create projects: minimal, traps, template)
+//   node labs.mjs lab3        (phases + tasks + assignment)
+//   node labs.mjs lab4        (time entry)
+//   node labs.mjs lab5        (rate-limit-safe client demo)
 // Edit OWNER_EMAIL and (for templates) TEMPLATE_ID below before lab2.
 
 const BASE = "https://api.rocketlane.com/api/1.0";
@@ -219,7 +219,7 @@ async function lab4() {
       minutes: 120,
       activityName: "API lab study",
       billable: false,
-      notes: "Shreeda's 'log two hours' example, raw",
+      notes: "logging study time",
     },
   });
   console.log(
@@ -246,7 +246,7 @@ async function lab5() {
 const labs = { lab1, lab2, lab3, lab4, lab5 };
 const pick = process.argv[2];
 if (!labs[pick]) {
-  console.log(`Usage: node round2-labs.mjs <${Object.keys(labs).join("|")}>`);
+  console.log(`Usage: node labs.mjs <${Object.keys(labs).join("|")}>`);
   process.exit(1);
 }
 labs[pick]().catch((e) => {

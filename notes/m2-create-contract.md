@@ -1,6 +1,6 @@
 # M2 - the create-project contract, what I proved
 
-## My own words (fill these in, no peeking at chat)
+## My own words (written from memory)
 
 - The three required fields are:
 - Customer matching, the three-row table (exists any-case / unknown no-flag / unknown + autoCreateCompany):
