@@ -13,6 +13,13 @@ A hands-on sandbox for the Rocketlane public API: reading and creating projects,
 - `labs/` - runnable experiments, one file per topic. Start with `labs/labs.mjs` (`node labs/labs.mjs lab1`).
 - `notes/` - what I learned, one note per module.
 
+## What this sandbox grew into
+
+Two working builds, each in its own repo:
+
+- [workato-time-entry-sync](https://github.com/AuskinImmanuel/workato-time-entry-sync) - a Google Sheet of logged hours flowing into Rocketlane time entries daily via Workato, idempotent, with the error queue living in the sheet itself.
+- [form-to-requirements-doc](https://github.com/AuskinImmanuel/form-to-requirements-doc) - form submission to auto-created requirements document, entirely native, including the undocumented import-template mechanism that makes it possible.
+
 ## Facts I keep needing
 
 - Base URL `https://api.rocketlane.com/api/1.0`, auth header `api-key`.
