@@ -4,7 +4,7 @@
 //   export RL_API_KEY="..."          (Settings -> API -> Create API key)
 //   node labs.mjs lab1        (read workspace + pagination)
 //   node labs.mjs lab2        (create projects: minimal, traps, template)
-//   node labs.mjs lab3        (phases + tasks + assignment)
+//   node labs.mjs lab3        (phases + tasks + assignees)
 //   node labs.mjs lab4        (time entry)
 //   node labs.mjs lab5        (rate-limit-safe client demo)
 // Edit OWNER_EMAIL and (for templates) TEMPLATE_ID below before lab2.
@@ -94,7 +94,7 @@ async function lab1() {
   );
 }
 
-// ---- Lab 2: create projects (THE likely assignment) ----
+// ---- Lab 2: create projects ----
 async function lab2() {
   console.log("== 2a. Minimal create: the exactly-three required fields ==");
   const p1 = await rl("/projects", {
