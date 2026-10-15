@@ -5,7 +5,7 @@ A hands-on sandbox for the Rocketlane public API: reading and creating projects,
 ## Setup
 
 1. Node 18.13+ (`node -v`).
-2. Copy `.env.example` to `.env`, paste an API key from Rocketlane Settings -> API. The `.env` file is gitignored; keys never get committed.
+2. Copy `.env.example` to `.env`, paste an API key from Rocketlane Settings -> API and your workspace login email. The `.env` file is gitignored; keys never get committed.
 3. Load it into the shell before running anything: `set -a; source .env; set +a`
 
 ## Layout

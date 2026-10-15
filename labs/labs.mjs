@@ -2,21 +2,29 @@
 // Rocketlane API labs - run against your own trial workspace.
 // Needs Node 18+. Usage:
 //   export RL_API_KEY="..."          (Settings -> API -> Create API key)
+//   export OWNER_EMAIL="..."         (your workspace login; lab2 and lab3)
 //   node labs.mjs lab1        (read workspace + pagination)
 //   node labs.mjs lab2        (create projects: minimal, traps, template)
 //   node labs.mjs lab3        (phases + tasks + assignees)
 //   node labs.mjs lab4        (time entry)
 //   node labs.mjs lab5        (rate-limit-safe client demo)
-// Edit OWNER_EMAIL and (for templates) TEMPLATE_ID below before lab2.
+// Edit TEMPLATE_ID below before lab2 (templates).
 
 const BASE = "https://api.rocketlane.com/api/1.0";
 const KEY = process.env.RL_API_KEY;
-const OWNER_EMAIL = "you@example.com"; // your workspace login
+const OWNER_EMAIL = process.env.OWNER_EMAIL; // your workspace login, from .env
 const TEMPLATE_ID = 5000000074218; // paste from the template's URL in the UI (no list-templates API!)
 
 if (!KEY) {
   console.error("Set RL_API_KEY first (Settings -> API -> Create API key).");
   process.exit(1);
+}
+
+function needOwner() {
+  if (!OWNER_EMAIL) {
+    console.error("Set OWNER_EMAIL first (your workspace login; see .env.example).");
+    process.exit(1);
+  }
 }
 
 // ---- Rate-limit-aware fetch: the Lab 5 lesson baked into every call ----
@@ -96,6 +104,7 @@ async function lab1() {
 
 // ---- Lab 2: create projects ----
 async function lab2() {
+  needOwner();
   console.log("== 2a. Minimal create: the exactly-three required fields ==");
   const p1 = await rl("/projects", {
     method: "POST",
@@ -162,6 +171,7 @@ async function lab2() {
 
 // ---- Lab 3: phases + tasks ----
 async function lab3() {
+  needOwner();
   const proj = await rl("/projects", {
     method: "POST",
     body: {
